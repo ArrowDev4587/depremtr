@@ -1,287 +1,453 @@
 <html>
   <head>
-    <meta name="viewport">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1254" />
+    <title>Toplanma Alanı Bölgeleri</title>
     <style>
-      .collapsible {
-        background-color: #969696;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-      }
       body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        overflow: scroll;
         background-color: #111;
       }
-      .active, .collapsible:hover {
+      button {
+        font-size: 12px;
+        color: white;
+        border: 1px solid white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
         background-color: #111;
+      }
+      ul {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+        flex-wrap: wrap;
+      }
+      li {
+        list-style: none;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        border: 1px solid white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
+      }
+      a:hover {
+        background-color: rgb(143, 143, 143);
         color: white;
       }
-      p {
-      color: white;
+      .region {
+        display: none;
+        background-color: white;
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1rem;
+        border: 1px solid rgb(51, 51, 51);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        animation: fadeIn 0.5s ease-in-out;
+        width: 90%;
+        max-width: 1024px;
+        overflow: scroll;
+    max-height: 400;
       }
-      .content {
-        padding: 0 18px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-        background-color: #111;
+      @media (max-width: 600px) {
+        .region {
+          /* width: 90%; */
+        }
       }
-    a {
-        font-size: 30px;
-        color: white;
-    }
-    b {
+      h2 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 18px;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+     h1 {
       color: white;
-    }
-    </style>
+     }
+     b {
+      color: white;
+     }
+  </style>      
+      
+      
   </head>
   <body>
-    <a>Toplanma Alanı Bölgeleri</a>
-    <button class="collapsible">Gaziantep</button>
-    <div class="content">
-        <p>İslahiye Çadırkenti</p>   
-        <p>Karkamış Çadırkenti</p>  
-        <p>Nizip 1 Çadırkenti</p>   
-        <p>Nizip 2 Konteynerkenti</p>
-        <p>çiçek plaza düğün salonu</p>
-      <p>uğur okulları gaziantep kampusu</p>
-      <p>incilikaya spor salonu</p>
-      <p>şehit kamil belediyesi beykent spor salonu</p>
-      <p>talat özkarslı spor salonu</p>
-      <p>kuzeyşehir spor salonu</p>
-      <p>hasan doğan sor kompleksi</p>
-      <p>karakedi saklı bahçe</p>
-      <p>müzeyyen erkul</p>
-      <p>bilim sanat merkezi</p>
-      <p>Gaziantep Vadi Allaben Göleti</p>
-      <p>Gaziantep Erikçe parkı</p>
-      <p>Gaziantep Burç Tabiat parkı</p>
-      <p>Gaziantep Çamlık parkı</p>
-      <p>Gaziantep Kavaklık parkı</p>
-      <p>Gaziantep 10 Nisan parkı</p>
-      <p>Gaziantep 100. yıl parkı</p>
-      <p>Gaziantep Allaben göleti</p>
-    </div>
-    <button class="collapsible">Malatya</button>
-    <div class="content">
-    <p>beydağı konteynerkenti</p>
-        <p>malatya hürriyet parkı 
-    </p>
-      <p>dedekorkut sosyaltesisi
-    </p>
-      <p>salköprü semt konağı
-    </p>
-      <p>özalper semt konağı
-    </p>
-      <p>akçadağ belediyesi
-    </p>
-      <p>akçadağ anadolu lisesi
-    </p>
-      <p>akçadağ sehit alper güde teknik lise ve çok programlı lise 
-    </p>
-      <p>arapgir belediyesi
-    </p>
-      <p>darrende hükümet konağı
-    </p>
-      <p>battalgazi belediyesi
-    </p>
-      <p>doğanyol lisesi
-    </p>
-      <p>malatya kuluncak ilçe milli eğitim müdürlüğü
-    </p>
+    <h1 style="text-align: center; font-size: 24px;">Toplanma Alanı Bölgeleri</h1>
+    <ul>
+      <li><a href="#gaziantep">Gaziantep</a></li>
+      <li><a href="#malatya">Malatya</a></li>
+      <li><a href="#hatay">Hatay</a></li>
+      <li><a href="#kahramanmaras">Kahramanmaraş</a></li>
+      <li><a href="#diyarbakir">Diyarbakır</a></li>
+      <li><a href="#sanliurfa">Şanlıurfa</a></li>
+      <li><a href="#adana">Adana</a></li>
+      <li><a href="#osmaniye">Osmaniye</a></li>
+      <li><a href="#mardin">Mardin</a></li>
+      <li><a href="#klis">Klis</a></li>
+      <li><a href="#adiyaman">Adıyaman</a></li>
+    </ul>
+    
+    <div class="region" id="gaziantep">
+      <h2>Gaziantep</h2>
+      <p>Adres: Merveşehir, 49002. Cd. No:22, 27080, 27590 Şehitkamil/Gaziantep (Çiçek Plaza Düğün Salonu)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/%C3%87i%C3%A7ek+Plaza+D%C3%BC%C4%9F%C3%BCn+Salonu/@37.0953455,37.3959442,15z/data=!4m5!3m4!1s0x0:0x6bd97d2561933e5a!8m2!3d37.0953834!4d37.3959415'">Buraya Tıkla</button> 
+      <p>Adres: Uğur Okulları, Binevler mah. 57. sok no:5, 27070 Şahinbey/Gaziantep (Uğur Okulları Gaziantep Kampüsü)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/U%C4%9Fur+Okullar%C4%B1+Gaziantep+Kamp%C3%BCs%C3%BC/@37.0467456,37.3261261,15z/data=!4m2!3m1!1s0x0:0xa56fe3a129b0baec?sa=X&ved=2ahUKEwinzJuVg4L9AhVuX_EDHUqbAfYQ_BJ6BAhnEAg'">Buraya Tıkla</button> 
+      <p>Adres: Beykent, Nolu Sokak no 61, 27080 Şehitkamil/Gaziantep (İncilikaya spor salonu)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/search?q=gaziantep%20incilikaya%20spor%20salonu&sxsrf=AJOqlzUCVMw1spDlUjq3cRjsa-1u1QkF6w:1675727626661&source=hp&ei=-InhY_SrE8Tw6APB-YQQ&iflsig=AK50M_UAAAAAY-GYCIQy2yrRcRCz9BNqSb8E-OOEoQxh&ved=2ahUKEwi-rbXvi4L9AhWkXvEDHaDkBQcQvS56BAgLEAE&uact=5&oq=gaziantep+incilikaya+spor+salonu+&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEBYQHjoECCMQJzoNCC4QsQMQgwEQ1AIQQzoECAAQQzoICAAQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgsILhCDARCxAxCABDoICC4QsQMQgwE6CwguEIAEELEDEIMBOg4ILhCxAxCDARDHARCvAToLCAAQgAQQsQMQgwE6BwgjELECECc6DQgAEIAEELEDEIMBEAo6EAguEIAEELEDEIMBENQCEAo6BggAEAoQAzoECAAQA1AAWMcrYIwtaAJwAHgAgAG1AYgB5Q6SAQQwLjEymAEAoAEBoAEC&sclient=gws-wiz&tbs=lf:1,lf_ui:2&tbm=lcl&rflfq=1&num=10&rldimm=5145397321961473950&lqi=CiBnYXppYW50ZXAgaW5jaWxpa2F5YSBzcG9yIHNhbG9udUjO79GrkLiAgAhaLhACEAMYABgBGAIYAyIgZ2F6aWFudGVwIGluY2lsaWtheWEgc3BvciBzYWxvbnWSAQ5zcG9ydHNfY29tcGxleKoBHhABKhoiFmluY2lsaWtheWEgc3BvciBzYWxvbnUoIQ&sa=X&rlst=f#rlfi=hd:;si:5145397321961473950,l,CiBnYXppYW50ZXAgaW5jaWxpa2F5YSBzcG9yIHNhbG9udUjO79GrkLiAgAhaLhACEAMYABgBGAIYAyIgZ2F6aWFudGVwIGluY2lsaWtheWEgc3BvciBzYWxvbnWSAQ5zcG9ydHNfY29tcGxleKoBHhABKhoiFmluY2lsaWtheWEgc3BvciBzYWxvbnUoIQ;mv:[[37.0482344,37.4413196],[37.047121600000004,37.440960100000005]];tbs:lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2'">Buraya Tıkla</button> 
+      <p>Adres: Beykent, 27580 Şehitkamil/Gaziantep (ŞEHİTKAMİL BELEDİYESİ BEYKENT SPOR SALONU)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/%C5%9EEH%C4%B0TKAM%C4%B0L+BELED%C4%B0YES%C4%B0+BEYKENT+SPOR+SALONU/@37.130111,37.3992751,15z/data=!4m2!3m1!1s0x0:0xa4249442c3508a82?sa=X&ved=2ahUKEwiat8Gkg4L9AhU6VfEDHVGpDTkQ_BJ6BAhYEAg'">Buraya Tıkla</button> 
+      <p>Adres: Kocaoğlan, 27100 Şahinbey/Gaziantep (Talat Özkarslı Spor Salonu)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Talat+%C3%96zkarsl%C4%B1+Spor+Salonu/@37.058055,37.3938128,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e6ba2d207adf:0xe914fae748785427!8m2!3d37.058055!4d37.3960015'">Buraya Tıkla</button> 
+      <p>Adres: Karacaören, 27000 Şehitkamil/Gaziantep (Kuzeyşehir Spor Salonu)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Kuzey%C5%9Fehir+Spor+Salonu/@37.220205,37.3724993,17z/data=!3m1!4b1!4m5!3m4!1s0x1531fdf45dc23229:0xa2a1a17f22f4521b!8m2!3d37.220205!4d37.374688'">Buraya Tıkla</button> 
+      <p>Adres: Binevler, 27060 Şahinbey/Gaziantep (Hasan Doğan Spor Kompleksi)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Hasan+Do%C4%9Fan+Spor+Kompleksi/@37.057535,37.3354925,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e1aae4977ceb:0x945d5b767af07ec0!8m2!3d37.057535!4d37.3376812'">Buraya Tıkla</button> 
+      <p>Adres: Şahinbey, Bey Mahallesi, Kemal Köker Caddesi, Öğretmenevi Yanı, Çınarlı Parkı İçi, 27010 Gaziantep (Karakedi Saklı Bahçe)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Karakedi+Sakl%C4%B1+Bah%C3%A7e/@37.0633567,37.3739312,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e14965bc3ad7:0x5631585f64c19028!8m2!3d37.063234!4d37.3761427'">Buraya Tıkla</button> 
+      <p>Adres: 15 Temmuz Mh, Üniversite Blv. No:320, 27560 Şehitkamil/Gaziantep (Müzeyyen Erkul Bilim Merkezi)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/M%C3%BCzeyyen+Erkul+Bilim+Merkezi/@37.0374,37.3125,15z/data=!4m5!3m4!1s0x0:0x1bccd75878606e4!8m2!3d37.0374!4d37.3125'">Buraya Tıkla</button> 
+      <p>Adres: Akkent, Özdemir Cd. No:382, 27470 Şahinbey/Gaziantep (gaziantep bilim sanat merkez)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/dir//Akkent,+%C3%96zdemir+Cd.+No:382,+27470+%C5%9Eahinbey%2FGaziantep/@37.0050008,37.2866299,11.5z/data=!4m8!4m7!1m0!1m5!1m1!1s0x1531e0b54bb29a1b:0xdfdd59096d4cf7f8!2m2!1d37.3820153!2d37.019909'">Buraya Tıkla</button>
+      <p>Adres: Yamaçtepe, 27000 Şahinbey/Gaziantep (Alleben Göleti Piknik Alanı)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Alleben+G%C3%B6leti+Piknik+Alan%C4%B1/@37.0716847,37.1517383,11z/data=!4m10!1m2!2m1!1sGaziantep+Vadi+Alleben+G%C3%B6leti!3m6!1s0x152e1fc9e5c4104b:0xfce24347b44ab563!8m2!3d37.0729322!4d37.2766108!15sCh5HYXppYW50ZXAgVmFkaSBBbGxlYmVuIEfDtmxldGmSAQ1waWNuaWNfZ3JvdW5k4AEA!16s%2Fg%2F11b7h3xhrv'">Buraya Tıkla</button> 
+      <p>Adres: Büyükpınar, 27000 Şehitkamil/Gaziantep</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/search?q=Gaziantep%20Erik%C3%A7e%20park%C4%B1&sxsrf=AJOqlzXRRGD-_IJcTpBCAIlxgy1EmYQR4w:1675725491599&source=hp&ei=rYrhY4H9KuqNxc8PsZ2GqAI&iflsig=AK50M_UAAAAAY-GYvZu3w5aQW9GIHJwd8NEupSdeeKrO&ved=2ahUKEwjJxav1g4L9AhU7cPEDHSr1BzMQvS56BAgREAE&uact=5&oq=Gaziantep+Erik%C3%A7e+park%C4%B1&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeOgcIIxDqAhAnUNcFWNcFYIoIaAFwAHgAgAGcAYgBnAGSAQMwLjGYAQCgAQKgAQGwAQo&sclient=gws-wiz&tbs=lf:1,lf_ui:1&tbm=lcl&rflfq=1&num=10&rldimm=1493802033920538642&lqi=ChhHYXppYW50ZXAgRXJpa8OnZSBwYXJrxLFI1dCF6pKrgIAIWiYQAhgAGAEYAiIYZ2F6aWFudGVwIGVyaWvDp2UgcGFya8SxKgIIApIBBHBhcms&phdesc=bV5FjWuKjsU&sa=X&rlst=f#rlfi=hd:;si:,37.12252370053878,37.30724373914794;mv:[[37.1247634,37.308388199999996],[37.1160475,37.3006428]]'">Buraya Tıkla</button> 
+      <p>Adres: Yamaçtepe, 27410 Şahinbey/Gaziantep (Burç Tabiat Parkı)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Bur%C3%A7+Tabiat+Park%C4%B1/@37.0307015,37.2899449,15z/data=!4m5!3m4!1s0x0:0x1a0d60ad6dd5df67!8m2!3d37.0307015!4d37.2899449'">Buraya Tıkla</button>     
+      <p>Adres: Nuripazarbaşı, 58011 Sk. No:52, 27200 Şahinbey/Gaziantep (Çamlık parki)      </p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/%C3%87aml%C4%B1k+parki/@37.0476898,37.374887,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e12e9b900e9d:0x524b96894d0c833c!8m2!3d37.0476898!4d37.3770757'">Buraya Tıkla</button>
+      <p>Adres: Öğretmenevleri, 27010 Şahinbey/Gaziantep (Kavaklık Parkı)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Kavakl%C4%B1k+Park%C4%B1/@37.0616097,37.3525923,15z/data=!4m5!3m4!1s0x0:0x76cf5fa546f68f75!8m2!3d37.0616097!4d37.3525923'">Buraya Tıkla</button>
+      <p>Adres: Osmangazi, 27560 Şehitkamil/Gaziantep (10 Nisan Parkı)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/10+Nisan+Park%C4%B1/@37.053212,37.3125554,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e039a2e04249:0x50aed1e72c5f7467!8m2!3d37.053212!4d37.3147441'">Buraya Tıkla</button>
+      <p>Adres: Bey, Çınarlı Sk. No:2, 27010 Şahinbey/Şehitkamil/Gaziantep (100. Yıl Parkı)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/100.+Y%C4%B1l+Park%C4%B1/@37.0645412,37.3735624,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e14969df5731:0x10e70404b6218ade!8m2!3d37.0645412!4d37.3757511'">Buraya Tıkla</button>
+      <p>Adres: Dumlupınar, Merkez Cami Sk., 27650 Araban/Gaziantep (Araban Spor Salonu)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Araban+Spor+Salonu/@37.4275389,37.6789812,14.67z/data=!4m5!3m4!1s0x15323ef255555555:0x1fdfce2b64c9aad7!8m2!3d37.4265042!4d37.6892062'">Buraya Tıkla</button>
+      <p>Adres: Sultan Selim, 27970 Yavuzeli/Gaziantep (Yavuzeli yüzme havuzu)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/dir//Sultan+Selim,+YAVUZEL%C4%B0+Y%C3%9CZME+HAVUZU,+27970+Yavuzeli%2FGaziantep/@37.2233807,37.2229509,10z/data=!4m9!4m8!1m0!1m5!1m1!1s0x153219cbdd2228e3:0x4e844743c435b5a7!2m2!1d37.5623286!2d37.3195402!3e0'">Buraya Tıkla</button>
+      <p>Adres: Fırat, Oğuzcan Sk., 27700 Nizip/Gaziantep (Nizip Gençlik Merkezi)</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/N%C4%B0Z%C4%B0P+GEN%C3%87L%C4%B0K+MERKEZ%C4%B0/@37.0202533,37.7915485,17z/data=!3m1!4b1!4m5!3m4!1s0x15318f7a614fb683:0xf9ebe9ece0a32a2a!8m2!3d37.0202533!4d37.7937372'">Buraya Tıkla</button>
+      <p>Adres: Nizip Stadı</p>
+      <p>Adres: Oğuzlar, Mevlana Sok. No:3, 27900 Oğuzeli/Gaziantep</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/O%C4%9Fuzeli+Spor+Salonu/@36.9589157,37.5083246,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e82b2e56408d:0x8d42c759cb5c88df!8m2!3d36.9589157!4d37.5105133'">Buraya Tıkla</button>
+      <p>Adres: Beyler, 27800 İslahiye/Gaziantep</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/%C4%B0slahiye+Gen%C3%A7lik+Merkezi/@37.0389099,36.632184,17z/data=!3m1!4b1!4m5!3m4!1s0x152e55fb33e0d689:0xccbe5cf05a6ec3a5!8m2!3d37.0389099!4d36.6343727'">Buraya Tıkla</button>
+      <p>Adres: Karataş, 103410. Cd. 1-3, 27470 Şahinbey/Gaziantep</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Gaziantep+%C5%9Eahinbey+Spor+Salonu+Karata%C5%9F/@37.0347765,37.3209951,13z/data=!4m10!1m2!2m1!1sgaziantep+%C5%9Eahinbey+Spor+Salonu!3m6!1s0x1531e08412ff15cd:0xe91c03852de97387!8m2!3d37.021128!4d37.3462946!15sCh9nYXppYW50ZXAgxZ5haGluYmV5IFNwb3IgU2Fsb251WiEiH2dhemlhbnRlcCDFn2FoaW5iZXkgc3BvciBzYWxvbnWSAQNneW2aASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUlBiVTEyUWxGM0VBReABAA!16s%2Fg%2F11cl_l2340'">Buraya Tıkla</button>
+      <p>Adres: Batıkent, Muhsin Yazıcıoğlu Cd. No:18, 27560 Şehitkamil/Gaziantep</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Olimpik+Y%C3%BCzme+Havuzu/@37.053983,37.3123479,12z/data=!4m10!1m2!2m1!1sgaziantep+Olimpik+Y%C3%BCzme+Havuzu!3m6!1s0x1531e154eb95e4e9:0x25761f39a2eafb37!8m2!3d37.0688698!4d37.333277!15sCh9nYXppYW50ZXAgT2xpbXBpayBZw7x6bWUgSGF2dXp1WiEiH2dhemlhbnRlcCBvbGltcGlrIHnDvHptZSBoYXZ1enWSAQ5zd2ltbWluZ19iYXNpbpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VObE0xcHVNRnAzRUFF4AEA!16s%2Fg%2F11qnvm_yh6'">Buraya Tıkla</button>
+      <p>Adres: Göllüce, 25058. Sk., 27080 Şehitkamil/Gaziantep</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com.tr/maps/place/Gaziantep+%C3%87ok+Ama%C3%A7li+Spor+Salonu/@37.0781184,37.4118328,17z/data=!3m1!4b1!4m5!3m4!1s0x1531e43a1015152f:0x13714f99e7c7fde!8m2!3d37.0781184!4d37.4140215'">Buraya Tıkla</button>    
+      </div>
 
+    <div class="region" id="malatya">
+      <h2>Malatya</h2>
+      <p>Adres:Zafer, Yunus Emre Cd. No:2, 44300 Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?client=opera-gx&q=malatya+hürriyet+parkı&sourceid=opera&ie=UTF-8&oe=UTF-8">Buraya Tıkla</button> 
+      <p>Adres:Özalper, 3. Cd. No:47, 44090 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Ozalper+Semt+Konagi/@38.3363375,38.2855277,15z/data=!4m2!3m1!1s0x0:0x5860c58a6145647f?sa=X&ved=2ahUKEwjt-KmVmYL9AhWDXvEDHbhWDSUQ_BJ6BAhUEAg'">Buraya Tıkla</button> 
+      <p>Adres:Esenlik Dedekorkut, İstasyon virajı Dedekorkut Parkı, 44100 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/dir//%C4%B0stasyon+viraj%C4%B1+Dedekorkut+Park%C4%B1,+44100+Ye%C5%9Filyurt%2FMalatya/@38.3478112,38.217763,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x407636b0222438a5:0x91285efcce2e8790!2m2!1d38.2878024!2d38.3478184'">Buraya Tıkla</button> 
+      <p>Adres:Çavuşoğlu, Bent Cd. No:12, 44070 Malatya Merkez/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Salk%C3%B6pr%C3%BC+Semt+Kona%C4%9F%C4%B1,Malatya/@38.3551824,38.3071611,15z/data=!4m2!3m1!1s0x0:0x5c510c9fe3f5fdf3?sa=X&ved=2ahUKEwjPjqfZmYL9AhUhXfEDHZGyC0IQ_BJ6BAhBEAg'">Buraya Tıkla</button> 
+      <p>Adres:Doğu, 44600 Akçadağ/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Ak%C3%A7ada%C4%9F+ANADOLU+L%C4%B0SES%C4%B0/@38.3442326,37.9769863,15z/data=!4m2!3m1!1s0x0:0xec13eac02a0619c6?sa=X&ved=2ahUKEwjKi97-mYL9AhXDQ_EDHaSGAsYQ_BJ6BAhrEAM'">Buraya Tıkla</button> 
+      <p>Adres:Başpınar, Kışla Cad., 44600 Akçadağ/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Akcadag+Sehit+Alper+Gude+Teknik+Lise+ve+Cok+Programli+Lise/@38.344499,37.9711379,14z/data=!4m2!3m1!1s0x0:0x4cf622a82c03cd2e?sa=X&ved=2ahUKEwi6uaKTmoL9AhUFVvEDHZzkASwQ_BJ6BAhAEAQ'">Buraya Tıkla</button> 
+      <p>Adres:Köseoğlu, Hükümet Cd, 44800 Divriği/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Arapgir+Kaymakamligi/@39.0416374,38.4924392,15z/data=!4m2!3m1!1s0x0:0x44bf804b55f45e0?sa=X&ved=2ahUKEwiwxpSkmoL9AhW9cfEDHSQYAjkQ_BJ6BAhwEAg'">Buraya Tıkla</button> 
+      <p>Adres:Heyiketeği, Hükümet Cd. No:27, 44700 Darende/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Darende+H%C3%BCk%C3%BCmet+Kona%C4%9F%C4%B1/@38.5605619,37.4908019,15z/data=!4m2!3m1!1s0x0:0xe290791676e804b3?sa=X&ved=2ahUKEwi97pq8moL9AhU6bPEDHRRvCa0Q_BJ6BAhTEAg'">Buraya Tıkla</button> 
+      <p>Adres:İsak, Turgut Özal Cd, 44880 Doğanyol/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Do%C4%9Fanyol+Lisesi/@38.313002,39.038906,15z/data=!4m2!3m1!1s0x0:0x6321a65ae5691423?sa=X&ved=2ahUKEwjclvGWm4L9AhXrcvEDHf5QDWYQ_BJ6BAhMEAg'">Buraya Tıkla</button> 
+      <p>Adres:İstiklal, 44760 Kuluncak/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Malatya+Kuluncak+%C4%B0l%C3%A7e+Milli+E%C4%9Fitim+M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC/@38.8825782,37.6701968,15z/data=!4m2!3m1!1s0x0:0xdc9076bf004fcb19?sa=X&ved=2ahUKEwie9P6km4L9AhUpRvEDHVP4C_wQ_BJ6BAhoEAg'">Buraya Tıkla</button> 
+      <p>Adres: Özalper, Alpaslan Türkeş Blv., 44090 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=malatya%20Ye%C5%9Filyurt%20Merkez%20Spor%20Salonu&client=opera-gx&hs=UOu&ei=bY3hY_y5PKiHxc8PotyymAk&ved=2ahUKEwiIja3Um4L9AhWLR_EDHa3HBAcQvS56BAgLEAE&uact=5&oq=malatya+Ye%C5%9Filyurt+Merkez+Spor+Salonu&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyBQghEKABMgUIIRCgATIFCCEQoAEyCAghEBYQHhAdOgoIABBHENYEELADSgQIQRgASgQIRhgAUPYDWPYDYKkOaAFwAXgAgAGiAYgBogGSAQMwLjGYAQCgAQKgAQHIAQjAAQE&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:14&tbm=lcl&sxsrf=AJOqlzUprpcgbd48liPXOxA2YKzUF5reag:1675731864870&rflfq=1&num=10&rldimm=2416311836706203002&lqi=CiVtYWxhdHlhIFllxZ9pbHl1cnQgTWVya2V6IFNwb3IgU2Fsb251SI30woaYr4CACFpBEAIQAxAEGAAYARgCGAMYBCIlbWFsYXR5YSB5ZcWfaWx5dXJ0IG1lcmtleiBzcG9yIHNhbG9udSoECAIQAjICdHKSAQNneW2aASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNYMlY2VW5GM1JSQUKqASQQARogEAEiHL_JJKG6ZeVUbjOdAujJh3MXKi5GDbUfrjl7KR4&sa=X&rlst=f#rlfi=hd:;si:2416311836706203002,l,CiVtYWxhdHlhIFllxZ9pbHl1cnQgTWVya2V6IFNwb3IgU2Fsb251SI30woaYr4CACFpBEAIQAxAEGAAYARgCGAMYBCIlbWFsYXR5YSB5ZcWfaWx5dXJ0IG1lcmtleiBzcG9yIHNhbG9udSoECAIQAjICdHKSAQNneW2aASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNYMlY2VW5GM1JSQUKqASQQARogEAEiHL_JJKG6ZeVUbjOdAujJh3MXKi5GDbUfrjl7KR4;mv:[[38.3572236,38.313055899999995],[38.3077556,38.211753699999996]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:14'">Buraya Tıkla</button> 
+      <p>Adres:Özalper, 44090 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/%C3%87ok+Ama%C3%A7l%C4%B1+Spor+Salonu/@38.3476674,38.2739251,15z/data=!4m2!3m1!1s0x0:0xf3813acb303a6933?sa=X&ved=2ahUKEwit3_vtm4L9AhUORvEDHewrAc4Q_BJ6BAhEEAg'">Buraya Tıkla</button> 
+      <p>Adres:Özalper, Emniyet Md. Lojmanı, 44090 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=malatya%20Olimpik%20Kapal%C4%B1%20Y%C3%BCzme%20Havuzu&client=opera-gx&hs=CPu&ei=mY3hY7TJMoDZxc8PnZGtwAo&ved=2ahUKEwjEzt39m4L9AhUZYPEDHTqPCZkQvS56BAgMEAE&uact=5&oq=malatya+Olimpik+Kapal%C4%B1+Y%C3%BCzme+Havuzu&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIGCAAQFhAeMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABKBAhGGABQsgRYsgRgxwpoAXABeACAAYYBiAGGAZIBAzAuMZgBAKABAqABAcgBBcABAQ&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzWGa5_pUjrCt64DsPnfWIx4JgrHIw:1675731951647&rflfq=1&num=10&rldimm=13200671964111266899&lqi=CiVtYWxhdHlhIE9saW1waWsgS2FwYWzEsSBZw7x6bWUgSGF2dXp1SP-Wt_yVtYCACFo7EAEQAhADEAQYABgBGAMYBCIlbWFsYXR5YSBvbGltcGlrIGthcGFsxLEgecO8em1lIGhhdnV6dTICdHKSAQ5zd2ltbWluZ19iYXNpbqoBUAoIL20vMGJfcnMQARofEAEiGysl5KD_6AGT7iLkP56UVzgqG1dUvgcj4UHVbyohIh1vbGltcGlrIGthcGFsxLEgecO8em1lIGhhdnV6dSgh&sa=X&rlst=f#rlfi=hd:;si:13200671964111266899,l,CiVtYWxhdHlhIE9saW1waWsgS2FwYWzEsSBZw7x6bWUgSGF2dXp1SP-Wt_yVtYCACFo7EAEQAhADEAQYABgBGAMYBCIlbWFsYXR5YSBvbGltcGlrIGthcGFsxLEgecO8em1lIGhhdnV6dTICdHKSAQ5zd2ltbWluZ19iYXNpbqoBUAoIL20vMGJfcnMQARofEAEiGysl5KD_6AGT7iLkP56UVzgqG1dUvgcj4UHVbyohIh1vbGltcGlrIGthcGFsxLEgecO8em1lIGhhdnV6dSgh;mv:[[38.4948778,38.448247099999996],[38.317194199999996,38.2531969]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:2'">Buraya Tıkla</button> 
+      <p>Adres:Özalper, 44090 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/GSB+Malatya+Beyda%C4%9F%C4%B1+Gen%C3%A7lik+Merkezi/@38.3482939,38.2744276,15z/data=!4m2!3m1!1s0x0:0x90621b11ba7c2cab?sa=X&ved=2ahUKEwin-rqNnIL9AhWZS_EDHVBgDhEQ_BJ6BQiDARAI'">Buraya Tıkla</button> 
+      <p>Adres:Tecde, Sehit kibriz caddesi, 44090 Yeşilyurt/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=malatya%20Cimnastik%20Salonu&client=opera-gx&hs=9Pu&ei=1I3hY7vlK8-Exc8P-ZC5qAQ&ved=2ahUKEwi0xuOrnIL9AhX_S_EDHcF9CKcQvS56BAgLEAE&uact=5&oq=malatya+Cimnastik+Salonu&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCAAQgAQyBggAEBYQHkoECEEYAEoECEYYAFAAWABgnAdoAHABeACAAYQBiAGEAZIBAzAuMZgBAKABAqABAcABAQ&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzXBQUhdgzcvTjneDXTZmxeNYE-7sA:1675732048214&rflfq=1&num=10&rldimm=12520836442018635125&lqi=ChhtYWxhdHlhIENpbW5hc3RpayBTYWxvbnVIj-HMgOe3gIAIWiQQAhgAGAEiGG1hbGF0eWEgY2ltbmFzdGlrIHNhbG9udTICdHKSARFneW1uYXN0aWNzX2NlbnRlcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VRdGREVnlhMGQzRUFFqgE5EAEaHxABIhuQeiKB15nfkqcYRlYVQQJHtqpzpPCaJJW-XIEqFCIQY2ltbmFzdGlrIHNhbG9udSgh&sa=X&rlst=f#rlfi=hd:;si:12520836442018635125,l,ChhtYWxhdHlhIENpbW5hc3RpayBTYWxvbnVIj-HMgOe3gIAIWiQQAhgAGAEiGG1hbGF0eWEgY2ltbmFzdGlrIHNhbG9udTICdHKSARFneW1uYXN0aWNzX2NlbnRlcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VRdGREVnlhMGQzRUFFqgE5EAEaHxABIhuQeiKB15nfkqcYRlYVQQJHtqpzpPCaJJW-XIEqFCIQY2ltbmFzdGlrIHNhbG9udSgh;mv:[[38.3378304,38.2779893],[38.3142821,38.2693157]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:2'">Buraya Tıkla</button> 
+      <p>Adres:Bulgurlu, 44000 Battalgazi/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Esref+Bitlis+Male+Student+Dormitory/@38.3450087,38.4188548,15z/data=!4m2!3m1!1s0x0:0x19767914f6612a92?sa=X&ved=2ahUKEwiFvNzMnIL9AhVyRPEDHdAQBH0Q_BJ6BAhxEAg'">Buraya Tıkla</button> 
+      <p>Adres:Bulgurlu, 44000 Battalgazi/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=malatya%20%C4%B0lhan%20Ak%C4%B1nc%C4%B1%20Erkek%20%C3%96%C4%9Frenci%20Yurdu&client=opera-gx&hs=cnZ&ei=gI7hY5aPCe-Rxc8PmtOq-As&ved=2ahUKEwjU4IzcnIL9AhX9RvEDHdvICIMQvS56BAgNEAE&uact=5&oq=malatya+%C4%B0lhan+Ak%C4%B1nc%C4%B1+Erkek+%C3%96%C4%9FrenciYurdu&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzoKCAAQRxDWBBCwA0oECEEYAEoFCEASATFKBAhGGABQvQNYvQNg2QloAXABeACAAZIBiAGSAZIBAzAuMZgBAKABAqABAcgBCMABAQ&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzUlYN5qtIf6DG2bqeEb2X8ZguoG2Q:1675732149552&rflfq=1&num=10&rldimm=5007729200869588858&lqi=Ci1tYWxhdHlhIMSwbGhhbiBBa8SxbmPEsSBFcmtlayDDlsSfcmVuY2kgWXVyZHVIno6Um5i1gIAIWkgQARACEAMQBBAFGAAYARgCGAMYBBgFIixtYWxhdHlhIGlsaGFuIGFrxLFuY8SxIGVya2VrIMO2xJ9yZW5jaSB5dXJkdTICdHKSARFzdHVkZW50X2Rvcm1pdG9yeaoBTRABGh8QASIb83X6LuhlzRUIYJYrTIfD-Ri09CkgXgE-hdufKigiJGlsaGFuIGFrxLFuY8SxIGVya2VrIMO2xJ9yZW5jaSB5dXJkdSgh&sa=X&rlst=f#rlfi=hd:;si:5007729200869588858,l,Ci1tYWxhdHlhIMSwbGhhbiBBa8SxbmPEsSBFcmtlayDDlsSfcmVuY2kgWXVyZHVIno6Um5i1gIAIWkgQARACEAMQBBAFGAAYARgCGAMYBBgFIixtYWxhdHlhIGlsaGFuIGFrxLFuY8SxIGVya2VrIMO2xJ9yZW5jaSB5dXJkdTICdHKSARFzdHVkZW50X2Rvcm1pdG9yeaoBTRABGh8QASIb83X6LuhlzRUIYJYrTIfD-Ri09CkgXgE-hdufKigiJGlsaGFuIGFrxLFuY8SxIGVya2VrIMO2xJ9yZW5jaSB5dXJkdSgh;mv:[[38.3557169,38.4579683],[38.3278313,38.3090007]];tbs:lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2'">Buraya Tıkla</button> 
+      <p>Adres:Orduzu, D300, 44000 Battalgazi/Malatya</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=malatya%20Battalgazi%20K%C4%B1z%20%C3%96%C4%9Frenci%20Yurdu&client=opera-gx&hs=YTu&ei=p47hY63FLPerxc8PytKPgAY&ved=2ahUKEwiZka_tnIL9AhVyS_EDHZpYDCEQvS56BAgNEAE&uact=5&oq=malatya+Battalgazi+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzoKCAAQRxDWBBCwA0oECEEYAEoFCEASATFKBAhGGABQpQZYpQZg6RVoAXABeACAAY0BiAGNAZIBAzAuMZgBAKABAqABAcgBBcABAQ&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzXdtm0qWuBRye3UJV-tM9EQi3M5sw:1675732185768&rflfq=1&num=10&rldimm=6373877920406361972&lqi=CidtYWxhdHlhIEJhdHRhbGdhemkgS8SxeiDDlsSfcmVuY2kgWXVyZHVIyYnyvtyugIAIWj8QARACEAMQBBgAGAEYAhgDGAQiJ21hbGF0eWEgYmF0dGFsZ2F6aSBrxLF6IMO2xJ9yZW5jaSB5dXJkdTICdHKSAQZob3N0ZWyaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkhiVGd5VERKblJSQUKqAUgQARofEAEiG_0vkEu3-00pTGtq22Yr6GMiFLQOdvU-mUvNYCojIh9iYXR0YWxnYXppIGvEsXogw7bEn3JlbmNpIHl1cmR1KCE&sa=X&rlst=f#rlfi=hd:;si:6373877920406361972,l,CidtYWxhdHlhIEJhdHRhbGdhemkgS8SxeiDDlsSfcmVuY2kgWXVyZHVIyYnyvtyugIAIWj8QARACEAMQBBgAGAEYAhgDGAQiJ21hbGF0eWEgYmF0dGFsZ2F6aSBrxLF6IMO2xJ9yZW5jaSB5dXJkdTICdHKSAQZob3N0ZWyaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkhiVGd5VERKblJSQUKqAUgQARofEAEiG_0vkEu3-00pTGtq22Yr6GMiFLQOdvU-mUvNYCojIh9iYXR0YWxnYXppIGvEsXogw7bEn3JlbmNpIHl1cmR1KCE;mv:[[38.383136799999996,38.456395],[38.3446435,38.3221651]];tbs:lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2'">Buraya Tıkla</button> 
+      </div>
+    
+    <div class="region" id="hatay">
+      <h2>Hatay</h2>
+      <p>Adres: Akasya, Çevre Yolu Otoğar Yanı No:6, 31030 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Hatay+Fairgrounds/@36.2268104,36.134262,15z/data=!4m2!3m1!1s0x0:0x36f9e82663e53a61?sa=X&ved=2ahUKEwi0w_m7noL9AhX3R_EDHfJIAKIQ_BJ6BAh3EAg'">Buraya Tıkla</button> 
+      <p>Adres:Sarılar, Havuz Sk. No:14, 31750, 31750 Altınözü/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=Hatay%2015%20Temmuz%20Milli%20%C4%B0rade%20park%C4%B1.&client=opera-gx&ei=54_hY_nlBrmNxc8PgciX6AI&ved=2ahUKEwi7i4XbnoL9AhWASPEDHW6pBYgQvS56BAgQEAE&uact=5&oq=Hatay+15+Temmuz+Milli+%C4%B0rade+park%C4%B1.&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIGCAAQFhAeOgkIABAIEB4QsANKBAhBGAFKBAhGGABQ2gNY2gNgpwpoAXAAeACAAYIBiAGCAZIBAzAuMZgBAKABAqABAcgBAcABAQ&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:1&tbm=lcl&sxsrf=AJOqlzWf7XNdMjzJAeh7adm5k3g472DNTQ:1675732684200&rflfq=1&num=10&rldimm=16032796964219145389&lqi=CiRIYXRheSAxNSBUZW1tdXogTWlsbGkgxLByYWRlIHBhcmvEsS5It_Gcx6CvgIAIWj4QARACEAMQBBAFGAAYARgCGAMYBBgFIiJoYXRheSAxNSB0ZW1tdXogbWlsbGkgaXJhZGUgcGFya8SxMgJ0cpIBBHBhcmuqAUUQARofEAEiG0tNV3w-IJCLi47aENOkOdSWswk9l12EBLXLDiogIhwxNSB0ZW1tdXogbWlsbGkgaXJhZGUgcGFya8SxKCE&phdesc=vK054aqQl-Q&sa=X&rlst=f#rlfi=hd:;si:16032796964219145389,l,CiRIYXRheSAxNSBUZW1tdXogTWlsbGkgxLByYWRlIHBhcmvEsS5It_Gcx6CvgIAIWj4QARACEAMQBBAFGAAYARgCGAMYBBgFIiJoYXRheSAxNSB0ZW1tdXogbWlsbGkgaXJhZGUgcGFya8SxMgJ0cpIBBHBhcmuqAUUQARofEAEiG0tNV3w-IJCLi47aENOkOdSWswk9l12EBLXLDiogIhwxNSB0ZW1tdXogbWlsbGkgaXJhZGUgcGFya8SxKCE,y,vK054aqQl-Q;mv:[[36.215395,36.2554647],[36.1114533,36.1536864]];tbs:lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:1'">Buraya Tıkla</button> 
+      <p>Adres:Cebrail, 2. Sk. No:1, 31030 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=Hatay%20Vali%20%C3%9Crgen%20park%C4%B1&client=opera-gx&ei=SJDhY-XPIpSExc8PjYitqAo&ved=2ahUKEwjm-8b3noL9AhWQZ_EDHfWSDU0QvS56BAgNEAk&uact=5&oq=Hatay+Vali+%C3%9Crgen+park%C4%B1&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIICCEQFhAeEB0yCAghEBYQHhAdOgoIABAeEKIEELADOggIABCiBBCwA0oECEEYAUoECEYYAFC-A1i-A2CBCmgBcAB4AIABpQGIAaUBkgEDMC4xmAEAoAECoAEByAEFwAEB&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:1&tbm=lcl&sxsrf=AJOqlzWomIhsFMN_118pqdo9r1zVuYOAeA:1675732744000&rflfq=1&num=10&rldimm=10961046028229380195&lqi=ChhIYXRheSBWYWxpIMOccmdlbiBwYXJrxLFIpdyH9fasgIAIWjIQARACEAMYABgBGAIYAyIYaGF0YXkgdmFsaSDDvHJnZW4gcGFya8SxKgQIAhACMgJ0cpIBBHBhcmuqASMQARofEAEiG0M4lmn4Es5oBhbdoV0sZsLCBAsac65T2qYcKw&phdesc=N_YPj7igKew&sa=X&rlst=f#rlfi=hd:;si:10961046028229380195,l,ChhIYXRheSBWYWxpIMOccmdlbiBwYXJrxLFIpdyH9fasgIAIWjIQARACEAMYABgBGAIYAyIYaGF0YXkgdmFsaSDDvHJnZW4gcGFya8SxKgQIAhACMgJ0cpIBBHBhcmuqASMQARofEAEiG0M4lmn4Es5oBhbdoV0sZsLCBAsac65T2qYcKw,y,N_YPj7igKew;mv:[[36.208661899999996,36.1584491],[36.2080645,36.1574581]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:1'">Buraya Tıkla</button> 
+      <p>Adres:Maşuklu, 31000 Hatay Merkez/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=Hatay%20Vali%20Utku%20Acun%20park%C4%B1&client=opera-gx&ei=t5DhY4rNKciCxc8PiPuZkAk&ved=2ahUKEwjQ2baun4L9AhXobPEDHaGhDkMQvS56BAgNEAE&uact=5&oq=Hatay+Vali+Utku+Acun+park%C4%B1&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAE6CggAEEcQ1gQQsANKBAhBGABKBAhGGABQpwVYpwVg8w1oAXABeACAAaABiAGgAZIBAzAuMZgBAKABAqABAcgBCMABAQ&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:1&tbm=lcl&sxsrf=AJOqlzVN1rFcMV8vMdEqEMWWmRnVrDUaZw:1675732859077&rflfq=1&num=10&rldimm=3216123018040371786&lqi=ChtIYXRheSBWYWxpIFV0a3UgQWN1biBwYXJrxLFI4pnB3OWAgIAIWi0QBBgAGAEYAhgDGAQiG2hhdGF5IHZhbGkgdXRrdSBhY3VuIHBhcmvEsTICdHKSAQRwYXJrqgEvEAEaHxABIhvzbrT5v-04OLX2Th5jzSfCALNTcxSyiKkPPBAqCiIGcGFya8SxKCE&phdesc=17NWb9hNIWw&sa=X&rlst=f#rlfi=hd:;si:3216123018040371786,l,ChtIYXRheSBWYWxpIFV0a3UgQWN1biBwYXJrxLFI4pnB3OWAgIAIWi0QBBgAGAEYAhgDGAQiG2hhdGF5IHZhbGkgdXRrdSBhY3VuIHBhcmvEsTICdHKSAQRwYXJrqgEvEAEaHxABIhvzbrT5v-04OLX2Th5jzSfCALNTcxSyiKkPPBAqCiIGcGFya8SxKCE,y,17NWb9hNIWw;mv:[[36.225614,36.189191199999996],[36.1969525,36.1259415]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:1'">Buraya Tıkla</button> 
+      <p>Adres:Cumhuriyet, Cumhuriyet Mahallesi, 31040 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Ataturk+Park/@36.1993651,36.1569715,15z/data=!4m2!3m1!1s0x0:0xed6fe3de5c5692da?sa=X&ved=2ahUKEwi-_4K_n4L9AhXlbvEDHZdpAfoQ_BJ6BAhrEAg'">Buraya Tıkla</button> 
+      <p>Adres:Harbiye, 31080 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=Hatay%20%C5%9Eelale%20park%C4%B1&client=opera-gx&ei=5ZDhY-eBL9Sqxc8PifaM-Ag&ved=2ahUKEwisjsDOn4L9AhVUQvEDHdXnC9cQvS56BAgMEAk&uact=5&oq=Hatay+%C5%9Eelale+park%C4%B1&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIGCAAQFhAeSgQIQRgASgQIRhgAUABYAGCEB2gAcAF4AIABhgGIAYYBkgEDMC4xmAEAoAECoAEBwAEB&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:1&tbm=lcl&sxsrf=AJOqlzW61YMjiZLCO8EuhS7dBT94PIex_A:1675732926340&rflfq=1&num=10&rldimm=8389444103048075025&lqi=ChRIYXRheSDFnmVsYWxlIHBhcmvEsUiT-tvohquAgAhaIhABEAIYABgBIhRoYXRheSDFn2VsYWxlIHBhcmvEsTICdHKSAQ9uYXR1cmVfcHJlc2VydmWaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTTRNVzgzYjNsM1JSQUKqATcQARofEAEiG07-x9IQsKFo8_fiuj45gsICAiUCqoWn9MnqPyoSIg7Fn2VsYWxlIHBhcmvEsSgh&phdesc=jvmCH1wytEg&sa=X&rlst=f#rlfi=hd:;si:8389444103048075025,l,ChRIYXRheSDFnmVsYWxlIHBhcmvEsUiT-tvohquAgAhaIhABEAIYABgBIhRoYXRheSDFn2VsYWxlIHBhcmvEsTICdHKSAQ9uYXR1cmVfcHJlc2VydmWaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTTRNVzgzYjNsM1JSQUKqATcQARofEAEiG07-x9IQsKFo8_fiuj45gsICAiUCqoWn9MnqPyoSIg7Fn2VsYWxlIHBhcmvEsSgh,y,jvmCH1wytEg;mv:[[36.878038,36.3801616],[36.0865897,35.8310142]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:1'">Buraya Tıkla</button> 
+      <p>Adres:Çekmece, 31000 Hatay Merkez/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Mehmet+Akar+Esentepe+Primary+School/@36.205344,36.140907,15z/data=!4m2!3m1!1s0x0:0xd4755816948576bb?sa=X&ved=2ahUKEwismJiHoIL9AhVzR_EDHU6NDrUQ_BJ6BAhPEAg'">Buraya Tıkla</button> 
+        <p>Adres:Küçükdalyan Mahallesi, Bozlu Mahallesi, Unnamed Road, 31550, Antakya/Hatay</p>
+        <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Harbiye+Seyir+Terasi/@36.1263805,36.1426246,15z/data=!4m6!3m5!1s0x1525c5afc15ae353:0xa7f4bbdb3843f271!8m2!3d36.1263805!4d36.1426246!16s%2Fg%2F11f0897_0q'">Buraya Tıkla</button> 
+      <p>Adres:Cumhuriyet, Cumhuriyet Mahallesi, 31040 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Ataturk+Park/@36.1993651,36.1569715,15z/data=!4m2!3m1!1s0x0:0xed6fe3de5c5692da?sa=X&ved=2ahUKEwj5uPipoIL9AhXuQvEDHQfFDMMQ_BJ6BAhzEAg'">Buraya Tıkla</button> 
+      <p>Adres:Sümerler, Defne Sk., 31070 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/search?q=Hatay%20Antik%20Park&client=opera-gx&ei=WJHhY5bUO6GJxc8P3bq5wAc&ved=2ahUKEwjss-a4oIL9AhUsSfEDHVunD10QvS56BAgLEAE&uact=5&oq=Hatay+Antik+Park&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyBQghEKABOgoIABBHENYEELADSgQIQRgASgQIRhgAUNsFWNsFYLANaAFwAXgAgAGQAYgBkAGSAQMwLjGYAQCgAQKgAQHIAQPAAQE&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzVXRnK9DrqIyNb1Ku_IpSoCfFdqUA:1675733149266&rflfq=1&num=10&rldimm=14393730870476969986&lqi=ChBIYXRheSBBbnRpayBQYXJrSKKc3r3ogICACFogEAEQAhgAGAEYAiIQaGF0YXkgYW50aWsgcGFyazICdHKSAQRjYWZlmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5OZW1WeVRuVjNSUkFCqgEzEAEaHxABIhtZd5C5OQM-G5BUZ_pjdttdwCEuhhJ3YPchFeoqDiIKYW50aWsgcGFyaygh&sa=X&rlst=f#rlfi=hd:;si:14393730870476969986,l,ChBIYXRheSBBbnRpayBQYXJrSKKc3r3ogICACFogEAEQAhgAGAEYAiIQaGF0YXkgYW50aWsgcGFyazICdHKSAQRjYWZlmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5OZW1WeVRuVjNSUkFCqgEzEAEaHxABIhtZd5C5OQM-G5BUZ_pjdttdwCEuhhJ3YPchFeoqDiIKYW50aWsgcGFyaygh;mv:[[36.263777399999995,36.1746516],[36.1243811,36.1347658]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:2'">Buraya Tıkla</button> 
+      <p>Adres:Sümerler, 12. Sk. No:3, 31160 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Dostluk+2+Park%C4%B1/@36.191881,36.1536955,15z/data=!4m2!3m1!1s0x0:0x2669b37d10f917e2?sa=X&ved=2ahUKEwid3IDJoIL9AhXyQPEDHeQ4C0sQ_BJ6BAhJEAg'">Buraya Tıkla</button> 
+      <p>Adres:Armutlu, Hacı Durmuş Cd No:21, 31160 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Maxim+Park/@36.1944412,36.1572088,15z/data=!4m2!3m1!1s0x0:0x15a789eb85b86020?sa=X&ved=2ahUKEwis54XeoIL9AhVBX_EDHY-BD9IQ_BJ6BAhSEAg'">Buraya Tıkla</button> 
+      <p>Adres:Sümerler, 31070 Hatay Merkez/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Nimet+Fahri+Oksuz+Lisesi/@36.194083,36.1564558,15z/data=!4m2!3m1!1s0x0:0xd51e42ad66c1e1ba?sa=X&ved=2ahUKEwjE4PrroIL9AhWVRPEDHSAPDi8Q_BJ6BAhjEAg'">Buraya Tıkla</button> 
+      <p>Adres:Altınçay, 131. Sk. 3-1, 31040 Antakya/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Toki+%C3%87ok+Ama%C3%A7l%C4%B1+Spor+Salonu/@36.2151178,36.1289068,15z/data=!4m2!3m1!1s0x0:0x5afaa6fd365853cb?sa=X&ved=2ahUKEwiVkvz7oIL9AhWDVPEDHZ_LByYQ_BJ6BAhIEAg'">Buraya Tıkla</button> 
+      <p>Adres:Yeni, 129. Sk. NO:29, 31500 Reyhanlı/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/REYHANLI+GEN%C3%87L%C4%B0K+MERKEZ%C4%B0/@36.2548739,36.5636695,15z/data=!4m2!3m1!1s0x0:0x16956bd8d0fa66a5?sa=X&ved=2ahUKEwi0w56IoYL9AhVYSPEDHfR8BwIQ_BJ6BAhYEAg'">Buraya Tıkla</button> 
+      <p>Adres:Yeni, 129. Sk. NO:29, 31500 Reyhanlı/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/REYHANLI+GEN%C3%87L%C4%B0K+MERKEZ%C4%B0/@36.2548739,36.5636695,15z/data=!4m2!3m1!1s0x0:0x16956bd8d0fa66a5?sa=X&ved=2ahUKEwit7PzroYL9AhXHQvEDHVdwAggQ_BJ6BAhREAg'">Buraya Tıkla</button> 
+      <p>Adres:Pirireis, 152. Sk. no:40, 31200 İskenderun/Hatay</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/GSB+%C4%B0SKENDERUN+GEN%C3%87L%C4%B0K+MERKEZ%C4%B0/@36.5857223,36.1524849,15z/data=!4m2!3m1!1s0x0:0xfa5a86af8d417915?sa=X&ved=2ahUKEwiZ-pT5oYL9AhVKR_EDHUJpA7oQ_BJ6BAh8EAg'">Buraya Tıkla</button> 
     </div>
-    <button class="collapsible">Hatay</button>
-    <div class="content">
-        <p>Altınözü Konteynerkenti</p>  
-        <p>Yayladağı Konteynerkenti</p> 
-        <p>Apaydın Konteynerkenti</p
-        <p>Güveççi Çadırkenti</p>
-        <p>Hatay Fuar alanı        </p>
-        <p>15 Temmuz Milli İrade parkı        </p>
-        <p>Petek parkı        </p>
-        <p>Vali Ürgen parkı        </p>
-        <p>Hatay Büyükşehir Belediye parkı        </p>
-        <p>Vali Utku Acun parkı       </p>
-        <p>Hatay Atatürk parkı     </p>
-        <p>Hatay Şelale parkı       </p>
-        <p>Abdullah Cömert Parkı      </p>
-        <p>Halı Saha        </p>
-        <p>Esentepe Mehmet Akar İlkokulu       </p>
-        <p>Sınav Koleji       </p>
-        <p>Harbiye Seyir Terasi        </p>
-        <p>Atatürk Parkı        </p>
-        <p>Antik Park        </p>
-        <p>Dostluk 2 Parkı       </p>
-        <p>Maxim Park        </p>
-        <p>Nimet Fahri Öksüz Anadolu ve Turizm Lisesi  </p>
-
+    
+    <div class="region" id="kahramanmaras">
+      <h2>Kahramanmaraş</h2>
+      <p>Adres: Nurettin Aydın, İnönü Cd., 46700 Pazarcık/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Pazarc%C4%B1k+Otob%C3%BCs+Terminali/@37.487603,37.290757,15z/data=!4m5!3m4!1s0x0:0x1cfe7959f4036266!8m2!3d37.487603!4d37.290757'"> Buraya Tıkla</button> 
+      <p>Adres: Fatih, 46760 Pazarcık/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Gazi+%C4%B0lkokulu/@37.4855091,37.2897269,17z/data=!4m10!1m2!2m1!1za2FocmFtYW5tYXJhxZ8gUGF6YXJjxLFrIEdhemkgxLBsa8O2xJ9yZXRpbSBPa3VsdQ!3m6!1s0x152df7f962fbb49b:0xfe34ad431b4bde1c!8m2!3d37.4844755!4d37.2899902!15sCjFrYWhyYW1hbm1hcmHFnyBQYXphcmPEsWsgR2F6aSDEsGxrw7bEn3JldGltIE9rdWx1kgEGc2Nob29s4AEA!16s%2Fg%2F11gbl35srx'"> Buraya Tıkla</button> 
+      <p>Adres: Menderes, Piyade Onbaşı Ahmet Yiğit Cd., 46700 Pazarcık/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Pazarc%C4%B1k+%C3%87imko+%C4%B0lkokulu/@37.4479437,36.7049083,9z/data=!4m10!1m2!2m1!1zUGF6YXJjxLFrIMOHaW1rbyBwYXJrxLE!3m6!1s0x152df7e3d87365cb:0xb721d055d547402e!8m2!3d37.4923995!4d37.2937615!15sChdQYXphcmPEsWsgw4dpbWtvIHBhcmvEsZIBBnNjaG9vbOABAA!16s%2Fg%2F11d_yth3bm'"> Buraya Tıkla</button> 
+      <p>Adres: Nurettin Aydın, 46700 Pazarcık/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Atat%C3%BCrk+Park%C4%B1/@37.4827384,37.2764062,17z/data=!3m1!4b1!4m5!3m4!1s0x152df81e71718aff:0xa3b986334100b900!8m2!3d37.4827384!4d37.2785949'"> Buraya Tıkla</button> 
+      <p>Adres: Cengiz Topel, Cengiz Topel 8. Caddesi, 46700 Pazarcık/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Pazarc%C4%B1k+1+Nolu+Aile+Sa%C4%9Fl%C4%B1%C4%9F%C4%B1+Mer./@37.484865,37.2952103,17z/data=!3m1!4b1!4m5!3m4!1s0x153208029cfba755:0xc56687d3f153b983!8m2!3d37.484865!4d37.297399'"> Buraya Tıkla</button> 
+      <p>Adres: Hamzabey, Şht. Nurettin Mutlu Sk., 16500 Mustafakemalpaşa/Bursa</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Sevgi+Park+Cafe/@37.4900227,37.2952617,17z/data=!3m1!4b1!4m5!3m4!1s0x1532081df4f2a2db:0x79c9aa2095388815!8m2!3d37.4900227!4d37.2974504'"> Buraya Tıkla</button>
+      <p>Adres: Menderes, Şht. Jandarma Onbaşı Mehmet Tahtal Cd. No:28, 46700 Pazarcık/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Mehmet+Emin+Ar%C4%B1ko%C4%9Flu+Aile+Park%C4%B1/@37.4928232,37.2912257,17z/data=!3m1!4b1!4m5!3m4!1s0x152df7e16133c9b7:0x769bb15c471ee9b4!8m2!3d37.4928232!4d37.2934144'"> Buraya Tıkla</button> 
+      <p>Adres: Kahramanmaraş Merkez Spor Salonu</p>
+      <p>Adres: Serintepe, Bayazıtlı Blv. No:26, 46050 Kahramanmaraş Merkez/Kahramanmaraş</p>
+      <button onclick="window.location.href='https://www.google.com.tr/maps/place/Bat%C4%B1park+Spor+Salonu/@37.5886153,36.9141583,17z/data=!3m1!4b1!4m5!3m4!1s0x152ddcf1f031c425:0x80b8c1fafe3b6f49!8m2!3d37.5886153!4d36.916347'"> Buraya Tıkla</button> 
+      <p>Adres: Kahramanmaraş 12 Şubat Stadı</p>
     </div>
-    <button class="collapsible">Kahramanmaraş</button>
-    <div class="content">
-        <p>kahramanmaraş Merkez Konteynerkenti</p>
-        <p>Pazarcık otogar
-        </p>
-        <p>Pazarcık kapalı pazar yeri ve park
-        </p>
-        <p>Pazarcık Gazi İlköğretim Okulu
-        </p>
-        <p>Pazarcık Çimko parkı
-        </p>
-        <p>Pazarcık Atatürk parkı
-        </p>
-        <p>Pazarcık 1 nolu sağlık ocağı
-        </p>
-        <p>Pazarcık Sevgi parkı
-        </p>
-        <p>Pazarcık Mehmet Emin Arıkoğlu parkı
-        </p>
-        <p>Pazarcık Spor tesis alanı
-        </p>
-
+        <div class="region" id="diyarbakir">
+      <h2>Diyarbakır</h2>
+      <p>Adres:Dökme taş mahallesi,Tekstil ihtisar OSB 1.cadde No:2, D:1, 21010 Alköy Köyü/Yenişehir/Diyarbakır</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/dir/38.3895468,27.1852936/Jiber+Fabrika,+D%C3%B6kme+ta%C5%9F+mahallesi,Tekstil+ihtisar+OSB+1.cadde+No:2,+D:1,+21010+Alk%C3%B6y+K%C3%B6y%C3%BC%2FYeni%C5%9Fehir%2FDiyarbak%C4%B1r/@37.9377756,40.091266,10.25z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x4074fe84d1892ed9:0x778f549432a59dc9!2m2!1d40.0401236!2d38.0694699">Buraya Tıkla</button> 
+      <p>Adres:Şehitlik, Unnamed Road, 21010 Yenişehir/Diyarbakır</p>
+      <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Yeni%C5%9Fehir+Youth+Center/@37.8964665,40.2195628,15z/data=!4m2!3m1!1s0x0:0x7603b2aaaf4186f1?sa=X&hl=en&ved=2ahUKEwitpZzajYL9AhVWR_EDHd72CQ0Q_BJ6BAhwEAg'">Buraya Tıkla</button> 
+       <p>Adres:Cumhuriyet, 395. Sk. no:3, 21120 Yenişehir/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Diyarbak%C4%B1r+Seyrantepe+Kapal%C4%B1+Spor+Salonu/@37.9461287,40.1922281,15z/data=!4m6!3m5!1s0x4075203502aa9377:0x5bf10f93d4a6e7f2!8m2!3d37.9353375!4d40.2110096!16s%2Fg%2F11j2y_8n29?hl=en'">Buraya Tıkla</button> 
+       <p>Adres:Yenişehir, Aliemiri 4. Sk. No:17, 21100 Yenişehir/Diyarbakır </p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Diyarbakir+Gen%C3%A7lik+Merkezi/@37.9165899,40.2281527,15z/data=!4m2!3m1!1s0x0:0x82f4edb0e92b5d92?sa=X&ved=2ahUKEwi6ueLTjoL9AhVCcvEDHfhpCCAQ_BJ6BQiBARAI'">Buraya Tıkla</button> 
+       <p>Adres:Yeniköy, 21080 Bağlar/Diyarbakır </p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/GSB+Ba%C4%9Flar+Gen%C3%A7lik+Merkezi/@37.9194983,40.1968207,15z/data=!4m2!3m1!1s0x0:0xbda3cabf219cc1df?sa=X&ved=2ahUKEwjtsNfhjoL9AhWMR_EDHSdjBZwQ_BJ6BAhrEAg'">Buraya Tıkla</button> 
+       <p>Adres:Üç Kuyu Mahallesi Elazığ Bulvarı No:272, 21010 Yenişehir/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/T%C3%BCyap+Diyarbak%C4%B1r+Fuar+ve+Kongre+Merkezi/@37.981787,40.151221,15z/data=!4m2!3m1!1s0x0:0x9dd9ae2253590535?sa=X&ved=2ahUKEwiQxp73joL9AhXDR_EDHdIFCTgQ_BJ6BAhvEAg'">Buraya Tıkla</button> 
+       <p>Adres:Peyas, 21070 Kayapınar/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/%C5%9Eehit+Polis+Halit+G%C3%BCrsel+Spor+Kompleksi/@37.9312452,40.1751973,15z/data=!4m2!3m1!1s0x0:0x46c0727fa96b29fa?sa=X&ved=2ahUKEwjIzdiDj4L9AhV4X_EDHTv9CXEQ_BJ6BAhGEAg'">Buraya Tıkla</button> 
+       <p>Adres:Talaytepe, 21070 Kayapınar/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Diyarbakir+Stadyumu/@37.9426634,40.120461,15z/data=!4m2!3m1!1s0x0:0xa41677280d06fc4?sa=X&ved=2ahUKEwjogOqpj4L9AhUuQfEDHdmDCtEQ_BJ6BQiSARAI'">Buraya Tıkla</button> 
+       <p>Adres:Barış, 21070 Kayapınar/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Diyarbak%C4%B1r+B%C3%BCy%C3%BCk%C5%9Fehir+Belediyesi+Talaytepe+Spor+Kompleksi/@37.9353007,40.1252045,15z/data=!4m6!3m5!1s0x40751e916ea5ffc1:0x662c3ac831918a82!8m2!3d37.9353007!4d40.1252045!16s%2Fg%2F11hbpfl6s6'">Buraya Tıkla</button> 
+       <p>Adres:Cami Kebir, Pirinçler Sk. No: 1, 21300 Sur/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Diyarbak%C4%B1r+Grand+Mosque/@37.9124471,40.2358816,15z/data=!4m2!3m1!1s0x0:0x947682b516993561?sa=X&ved=2ahUKEwi0ydPHj4L9AhWQSPEDHdzxA2wQ_BJ6BQiDARAI'">Buraya Tıkla</button> 
+       <p>Adres:Fatihpaşa, Kurşunlu Cami, Fatih Sk. D:2, 21200 Sur/Diyarbakır</p>
+       <p>Konum: <button onclick="window.location.href='https://www.google.com/maps/place/Kur%C5%9Funlu+Cami/@37.911552,40.241504,15z/data=!4m6!3m5!1s0x40752046fc14eb0d:0xbea0c0c6cce8aa6c!8m2!3d37.911552!4d40.241504!16s%2Fg%2F1wd3tjm9'">Buraya Tıkla</button> 
+      </div>
+    
+    <div class="region" id="sanliurfa">
+      <h2>Şanlıurfa</h2>
+      <p>Adres:Ahmet Yesevi, 63100 Haliliye/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/3jyrXXVyG7vBgyJx7'">Buraya Tıkla</button> 
+      <p>Adres: Meydan, Ayvazlar Cd., 63400 Birecik/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/vtLRWMsyJgtSsVck8'">Buraya Tıkla</button> 
+      <p>Adres: Gölbaşı, 63850 Bozova/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/QHz15RHbm4b2tDwH6'">Buraya Tıkla</button> 
+      <p>Adres: Birlik, Viranşehir Cd., 63570 Ceylanpınar/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/FzJwWvGuX4yTR1vQ9'">Buraya Tıkla</button> 
+      <p>Adres: Fırat, 63950 Halfeti/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/KywftaLR4dBRkWvu6'">Buraya Tıkla</button> 
+      <p>Adres: Karacurun, no:75, İzollu Bozanbey Cad., 63900 Hilvan/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/rn2Cy7aWm1xfmuxZ7'">Buraya Tıkla</button> 
+      <p>Adres: Bağlarbaşı Mh. Açıksu Cd. Pk:63050 Merkez/şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/FRY1PdiPZKLvzPa86'">Buraya Tıkla</button> 
+      <p>Adres: Devteyşti, 2131. Sk. No:2, 63050 Haliliye/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/GmVyfg83aQQ6S1B48'">Buraya Tıkla</button> 
+      <p>Adres: Sırrın, Recep Tayyip Erdoğan Blv. No:200, 63040 Şanlıurfa Merkez/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/uPYQvepMrmphK9Fb6'">Buraya Tıkla</button> 
+      <p>Adres: Harran Kapı Caddesi Eyyübiye/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/6RpPXnPZAr97xfHQ8'">Buraya Tıkla</button> 
+      <p>Adres: Mimar Sinan, No:, 4053. Sk. No:19, 63100 Şanlıurfa Merkez</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/GMNjaqwR3mHkYwAB8'">Buraya Tıkla</button> 
+      <p>Adres: Atatürk, 34. Sok. No:6/A, 63100 Şanlıurfa Merkez/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/E2oTQ97XQCYB72Ue8'">Buraya Tıkla</button> 
+      <p>Adres: Ahmet Yesevi, Ahmet Yesevi mah. no:33, 2253. Sk., 63050 Haliliye/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/nNq7k79yBvYisYrLA'">Buraya Tıkla</button> 
+      <p>Adres: Bahçelievler, Çarşı Cd. No:41, 63100 Şanlıurfa Merkez/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/TKPaCsngWVGe1J4b8'">Buraya Tıkla</button> 
+      <p>Adres: Atakent Mah, Orman Yolu Cd. No:78, 63300 Karaköprü/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/u1exPTNppsGw27qP7'">Buraya Tıkla</button> 
+      <p>Adres: Eyüpkent, 63200 Eyyübiye/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/XAjTKWwLcEVZsDc69'">Buraya Tıkla</button> 
+      <p>Adres: Fatih Sultan Mehmet, 63500 Akçakale/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/MmGai9rKKCAfmTuR9'">Buraya Tıkla</button> 
+      <p>Adres: Bahçelievler, 1575. Sk. No:2, 63700 Viranşehir/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/gebYSwGtiaVUSCDo6'">Buraya Tıkla</button> 
+      <p>Adres: Yenişehir, 63600 Siverek/Şanlıurfa</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/UNYGod2jP6RLgQDD7'">Buraya Tıkla</button> 
     </div>
-    <button class="collapsible">Diyarbakır</button>
-    <div class="content">
-        <p>jiber fabrikası
-        </p>
-        <p>seyrantepe kanalı spor salonu 
-        </p>
-        <p>şehit halit gülser kız anadolu imam hatip lisesi
-        </p>
-        <p>yenişehir gençlik merkezi
-        </p>
-        <p>gsb bağlar gençlik merkezi
-        </p>
-        <p>tüyap diyarbakır fuar ve kongre merkezi 
-        </p>
-        <p>şehit polis halit gürsel spor kompleksi
-        </p>
-        <p>diyarbakır stadyumu 
-        </p>
-        <p>talaytepe spor kompleksi
-        </p>
-        <p>diyarbakır ulu camii
-        </p>
-        <p>kurşunlu camii
-        </p>
-        <p>fatih camii
-        </p>
-        <p>diyarbakır merkez camii 
-        </p>
-        <p>hazreti süleyman camii
-        </p>
-        <p>mehmet ümit balcı camii
-        </p>
-        <p>halidiye camii
-        </p>
-        <p>ismail hakkı demirok camii
-        </p>
-        <p>mekke camii
-        </p>
-        <p>abdürrezzak camii
-        </p>
-        <p>mervan camii
-        </p>
-        <p>kayrantepe camii
-        </p>
-
+    
+    <div class="region" id="adana">
+      <h2>Adana</h2>
+      <p>Adres: Yeşiloba, Adana - Mersin Otoyolu, 01150 Seyhan/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/NbGZK9d5EFdRFgvo7'">Buraya Tıkla</button> 
+      <p>Adres: Yeni, Öğretmenler Blv. No:19, 01200 Seyhan/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/H8dCjoVfHVRnZAqw5'">Buraya Tıkla</button> 
+      <p>Adres: Yeşiloba Mahhallesi 46278 sk. Real Yolu Üzeri No:3, 01200 Seyhan/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/uYgmvhmvrYm5Bk8u6'">Buraya Tıkla</button> 
+      <p>Adres: Yüzüncüyıl, Hacı Bektaş Veli Blv No:52, 01170 Çukurova/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/UTz725zDtpcGZnSH7'">Buraya Tıkla</button> 
+      <p>Adres: Güzelyalı, 81108. Sk. No:16, 01170 Çukurova/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/6XQSzfRBCx4kaWgc7'">Buraya Tıkla</button> 
+      <p>Adres: Karslılar, 82064. Sk. No:12, 01170 Çukurova/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/5nJxrWNp8mS5wWm37'">Buraya Tıkla</button> 
+      <p>Adres: Yenibaraj, Nursultan Nazarbayev Blv No:15, 01150 Seyhan/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/PA8JHC2srWLQp7oZ6'">Buraya Tıkla</button> 
+      <p>Adres: Belediye Evleri, 84186. Sk. No:1, 01170 Çukurova/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/Kg557CnQVNBwBBzK9'">Buraya Tıkla</button> 
+      <p>Adres: Bahçeşehir Mah., Adana – Mersin Otoyolu No:32, 01200 Seyhan/Adana</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/PNMcLP7aonu2c72Y9'">Buraya Tıkla</button>
     </div>
-    <button class="collapsible">Şanlıurfa</button>
-    <div class="content">
-        <p>Ceylanpınar Çadırkenti</p> 
-        <p>Akçakale Çadırkenti</p>    
-        <p>Harran Konteynerkenti</p>
-        <p>Suruç Çadırkenti</p>
-        <p>Ahmet Yesevi Gençlik Merkezi
-    </p>
-      <p>Birecik Gençlik Merkezi
-    </p>
-      <p>Bozova Gençlik Merkezi
-    </p>
-      <p>Ceylanpınar Büyükşehir Gençlik Merkezi
-    </p>
-      <p>Halfeti Gençlik Merkezi
-    </p>
-      <p>Hilvan Gençlik Merkezi
-    </p>
-      <p>Hayati Harrani Gençlik Merkezi
-    </p>
-      <p>Şehitlik İlkokulu
-    </p>
-      <p>İbrahim Halil Yıldım Parkı
-    </p>
-      <p>Sırrın Cami
-    </p>
-      <p>Harran Kapı Caddesi
-    </p>
-      <p>Rabia Meydanı
-    </p>
-      <p>Şanlıurfa Hipodromu
-    </p>
+    
+    <div class="region" id="osmaniye">
+      <h2>Osmaniye</h2>
+      <hr></hr>
+      <p>Adres: 80000 Cevdetiye/Osmaniye Merkez/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/a44v6Zm46EkeJhR47'">Buraya Tıkla</button> 
+      <p>Adres: Fakıuşağı Mahallesi 45021 Sok Özel Osmaniye Kız Öğrenci Yurdu No:10, 80010 Osmaniye</p>
+      <p>Adres: Esenevler, 80010 Osmaniye Merkez/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/XiqAoZmsC5Tvk4RW9'">Buraya Tıkla</button> 
+      <p>Adres: Fakıuşağı, No:, TOKİ Cd. No:41, 80010 Osmaniye Merkez/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/ifPmitHzhcCmkhBX8'">Buraya Tıkla</button> 
+      <p>Adres: Şehit Kansu Küçükateş, 80750 Kadirli/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/WBcp95nW2NHzpJc36'">Buraya Tıkla</button> 
+      <p>Adres: Yıldırım Beyazıt, Yusuf Çenet Blv. NO:1 D:NO:434, 80010 Osmaniye Merkez/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/LPybytnhf8f4bJdy7'">Buraya Tıkla</button> 
+      <p>Adres: Fakıuşağı, 80010 Osmaniye Merkez/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/mZ2UCxb7g2a2c88m8'">Buraya Tıkla</button> 
+      <p>Adres: Fakıuşağı, 80010 Osmaniye Merkez/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/SLvAAdX87rY653zk6'">Buraya Tıkla</button> 
+      <p>Adres: Yeni, 80750 Kadirli/Osmaniye</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/nMooqVmJtiN2JkWX9'">Buraya Tıkla</button> 
     </div>
-    <button class="collapsible">Adana</button>
-    <div class="content">
-        <p>Sarıçam Konteynerkenti</p>
-        <p>Adana Yeşiloba Hipodromu </p>
-        <p>Bahçeşehir Kolji </p>
-        <p>Uğur Okulları </p>
-        <p>Altıneller 100. Yıl ve Mavi Bulvar Kampüsü </p>
-        <p>Eral İlkokulu Ve Ortaokulu </p>
-        <p>Minecan Anaokulu </p>
-        <p>Adana Kolji</p>
-        <p>Adana Final Okulları</p>
-        <p>TED Adana Kolji</p>
+    
+    <div class="region" id="mardin">
+      <h2>Mardin</h2>
+      <p>Adres: Beyazsu Kamp Alanı</p>
+      <button onclick="window.location.href=' https://goo.gl/maps/gTgYnvnB9kqLvr1u8'">Buraya Tıkla</button>
+      <p>Adres: Yardere Kamp Alanı</p>
+      <button onclick="window.location.href='https://goo.gl/maps/AEmFF9MmYVEbAy1q9'">Buraya Tıkla</button>
+      <p>Adres: Bakırkırı Kamp Alanı</p>
+      <button onclick="window.location.href='https://goo.gl/maps/HN3PsWA3KvWTqAj58'">Buraya Tıkla</button>
+      <p>Adres: Yeşilli Kamp Alanı</p>
+      <button onclick="window.location.href='https://goo.gl/maps/PWd2hZsrm2XMfmCq6'">Buraya Tıkla</button> 
     </div>
-    <button class="collapsible">Osmaniye</button>
-    <div class="content">
-        <p>Cevdetiye Konteynerkenti</p>
-        <p>Düziçi Konteynerkenti</p>
-        <p>Osmaniye Kız Yurdu</p>
-        <p>Kayıboyu Kız Yurdu</p>
-        <p>Karacaoğlan Erkek Yurdu</p>
-        <p>Kadirli Karma Yurt Müdürlüğü</p>
-        <p>Osmaniye Gençlik Merkezi</p>
-        <p>Osmaniye Tosyalı Spor Salonu</p>
-        <p>Osmaniye Çok Amaçlı Spor Salonu</p>
-        <p>Osmaniye Olimpik Havuz</p>
-        <p>Osmaniye İl Müdürlüğü Ana Bina</p>
-        <p>Kadirli Spor Salonu</p>
-        <p>Kadirli Gençlik Merkezi</p>
-        <p>Düziçi Spor Salonu ve Gençlik Merkezi</p>
+    
+    <div class="region" id="klis">
+      <h2>Klis</h2>
+      <p>Adres: Doğan Güreş Paşa, Stadyum Sk. No:44, 79000, 79000 Kilis Merkez/Kilis</p>
+      <button onclick="window.location.href='https://www.google.com/maps/place/Kilis+Gen%C3%A7lik+Merkezi/@36.713224,37.111251,14z/data=!4m10!1m2!2m1!1skilis+gen%C3%A7lik+merkezi!3m6!1s0x152fd1540e9b2079:0xbd304fd127f3a819!8m2!3d36.7120118!4d37.1421923!15sChZraWxpcyBnZW7Dp2xpayBtZXJrZXppkgEDZ3lt4AEA!16s%2Fg%2F11fnx2mxsp'">Buraya Tıkla</button>
+      <p>Adres: Doğan Güreş Paşa, 79000 Kilis Merkez/Kilis</p>
+      <button onclick="window.location.href='https://www.google.com/maps/place/Genclik+Spor+Yuzme+Havuzu/@36.7180974,37.0983625,13z/data=!4m10!1m2!2m1!1skilis+y%C3%BCzme+havuzu!3m6!1s0x152fd1f223e395df:0xc4f09de9f4d22c1a!8m2!3d36.7104221!4d37.1422913!15sChNraWxpcyB5w7x6bWUgaGF2dXp1WhUiE2tpbGlzIHnDvHptZSBoYXZ1enWSAQNneW2aASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUnphRXRNU0VSbkVBReABAA!16s%2Fg%2F11clt8bfz1'">Buraya Tıkla</button>
+      <p>Adres: Atatürk, Doğan Güreş Paşa Blv. No:122, 79000 Kilis Merkez/Kilis</p>
+      <button onclick="window.location.href='https://www.google.com/maps/place/Kilis+Bilali+Habe%C5%9Fi+Yurdu/@36.7296864,37.0967052,17z/data=!3m1!4b1!4m5!3m4!1s0x152fce76aa2c614d:0x26408d218a319d!8m2!3d36.7296864!4d37.0988939'">Buraya Tıkla</button>
+      <p>Adres: Doğan Güreş Paşa, Org. Safter Necioğlu Blv. No:101, 79000 Kilis Merkez/Kilis</p>
+      <button onclick="window.location.href='https://www.google.com/maps/place/Kilis+Be%C5%9Fevler+Spor+Salonu/@36.7175555,37.1047132,14z/data=!4m10!1m2!2m1!1skilis+be%C5%9Fevler+2500+ki%C5%9Filik+spor+salonu!3m6!1s0x152fd1537157fa95:0x69453e4d627e76d6!8m2!3d36.7117606!4d37.1424181!15sCilraWxpcyBiZcWfZXZsZXIgMjUwMCBracWfaWxpayBzcG9yIHNhbG9udVorIilraWxpcyBiZcWfZXZsZXIgMjUwMCBracWfaWxpayBzcG9yIHNhbG9udZIBDHlvdXRoX2dyb3Vwc5oBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSSGNtOUhWM04zUlJBQuABAA!16s%2Fg%2F11fhwpd4gc'">Buraya Tıkla</button>
+      <p>Adres: Saraç Mehmet Çavuş, 79000 Kilis Merkez/Kilis</p>
+      <button onclick="window.location.href='https://www.google.com/maps/place/7+ARALIK+S%C4%B0TADYUMU/@36.7273932,37.0976595,15z/data=!4m10!1m2!2m1!1skilis+7+aral%C4%B1k+semt+sahas%C4%B1!3m6!1s0x152fce08a8386855:0x1f0caeba908a7e6!8m2!3d36.724036!4d37.1150575!15sChxraWxpcyA3IGFyYWzEsWsgc2VtdCBzYWhhc8SxWh4iHGtpbGlzIDcgYXJhbMSxayBzZW10IHNhaGFzxLGSAQNneW2aASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUXdNMXB5V0hKUlJSQULgAQA!16s%2Fg%2F11c1wwpxmy?hl=tr'">Buraya Tıkla</button>
+      <p>Adres: Oylum, 79000 Beşikkaya/Kilis Merkez/Kilis</p>
+      <button onclick="window.location.href='https://www.google.com/maps/place/S%C3%B6%C4%9F%C3%BCtl%C3%BCdere+Stad%C4%B1/@36.706928,37.161804,16z/data=!4m10!1m2!2m1!1za2lsaXMgc8O2xJ_DvHRsw7xkZXJlIHNlbXQgc2FoYXPEsQ!3m6!1s0x152fd186dff0a245:0xc9ddc79063a75bab!8m2!3d36.7088647!4d37.1621474!15sCiJraWxpcyBzw7bEn8O8dGzDvGRlcmUgc2VtdCBzYWhhc8SxkgEHc3RhZGl1beABAA!16s%2Fg%2F11fyxc6dn2'">Buraya Tıkla</button>
     </div>
-    <button class="collapsible">Mardin</button>
-    <div class="content">
-        <p>Midyat Çadırkenti</p>
+    
+    <div class="region" id="adiyaman">
+      <h2>Adıyaman</h2>
+      <p>Adres: Yenipınar, Atatürk Cd., 02100 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/9LZqFNeyTi6cB8VX8'">Buraya Tıkla</button> 
+      <p>Adres: Sümerevler, Karaali Yolu No:15, 02030 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/SGjVZU7XPHrbJSCi8'">Buraya Tıkla</button> 
+      <p>Adres: Turgut Reis, Haydar Efendi Cd. No:113, 02200 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/dgQpyE5J2L2NGWVP8'">Buraya Tıkla</button> 
+      <p>Adres: Eskisaray, Atatürk Blv. Yanyolu No:164, 02100 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/KTuhRZGdwrAtUy1S6'">Buraya Tıkla</button> 
+      <p>Adres: Yeni Sanayi, 1 Aralık Cd. No:36, 02040 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/BwTXv3DYUBFhhN9P7'">Buraya Tıkla</button> 
+      <p>Adres: Yeni, 02040 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/Muf7AzRn6LHT79Wf8'">Buraya Tıkla</button> 
+      <p>Adres: Yeni, 2661. Sk., 02040 Adıyaman Merkez/Adıyaman</p>
+      <p>Konum: <button onclick="window.location.href='https://goo.gl/maps/Hvw9yEgLcJv4Ttov5'">Buraya Tıkla</button> 
     </div>
-    <button class="collapsible">Kilis</button>
-    <div class="content">
-        <p>Öncüpınar Konteynerkenti</p>  
-        <p>Elbeyli Beşiriye Konteynerkenti</p>
-    </div>
-    <button class="collapsible">Adıyaman</button>
-    <div class="content">
-        <p>merkez çadır kenti</p>
-    </div>
-    <b>Ekleyemediğimiz bölgeler var arkadaşlar. Bildiğiniz listeleri bize cfxkingo#3552 Discord hesabımızdan ulaştırabilirsiniz.</b>
-        <b>Yeni bir temaya geçiş yapacağız gps adresleri vs. verdiğimiz bundan dolayı bizlere destek gerekiyor arkadaşlar her mekanın gps konumunu alabilmek için lütfen ulaşın bana</b>
-    <script>
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight){
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          } 
-        });
-      }
-    </script>
+    <div id="tweetsContainer"></div>
+  <b>Listeyi güncel tutmak için ek olarak bulduğunuz tüm yerleri cfxkingo#3552 Discord hesabına atınız.</b>
   </body>
+  <script>
+    const links = document.querySelectorAll('a');
+    for (const link of links) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const regions = document.querySelectorAll('.region');
+        for (const region of regions) {
+          region.style.display = 'none';
+        }
+        const region = document.querySelector(this.getAttribute('href'));
+        region.style.display = 'block';
+      });
+    }
+  </script>
+
+  <script>
+  $.ajax({
+    url: 'https://api.twitter.com/3/tweets?ids=Kandilli_info',
+    type: 'GET',
+    headers: {
+      'Authorization': 'APIKEY'
+    },
+    success: function(data) {
+      var tweets = data.data;
+      var tweetHTML = '';
+      for (var i = 0; i < tweets.length; i++) {
+        tweetHTML += '<p>' + tweets[i].text + '</p>';
+      }
+      $('#tweetsContainer').html(tweetHTML);
+    }
+  });
+</script>
+  
 </html>
